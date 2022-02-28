@@ -1,0 +1,50 @@
+@use "../../../../public/styles/lib/functions" as *;
+@use "../../../../public/styles/lib/mixins" as *;
+//@import "../../style.module";
+
+.InfoAboutMySkills {
+  @include flex($justify: center, $wrap: wrap, $align-content: space-between);
+  width: 50%;
+  height: calc(100% - 56px);
+  padding: rem(20) rem(35);
+
+  @include media-768 {
+    width: 100%;
+    height: auto;
+  }
+
+  &-Title {
+    width: 100%;
+    text-align: center;
+
+    @include media-768 {
+      text-align: start;
+    }
+  }
+
+  &-IconSkill {
+    height: rem(80);
+    width: rem(70);
+    flex-shrink: 0;
+    z-index: 3;
+    filter: brightness(0.7);
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(0px 0px 5px #00bff3);
+      transition: 0.3s;
+    }
+
+    &--active {
+      filter: drop-shadow(0px 0px 5px #00bff3);
+      transition: 0.3s;
+    }
+  }
+
+  &-SpecialtyText {
+    width: 100%;
+    height: rem(45);
+    text-align: end;
+  }
+}

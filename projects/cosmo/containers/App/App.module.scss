@@ -1,0 +1,8 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+
+.Application {
+  @include wh(100vw, 100vh);
+  overflow: hidden;
+  overflow-y: auto;
+}

@@ -1,0 +1,8 @@
+@import '../../../public/styles/lib/functions';
+
+.Line {
+  height: rem(1);
+  background: var(--Color-Portfolio-Line);
+  width: 100%;
+  margin: wSize(1, 0.5, 12) 0;
+}

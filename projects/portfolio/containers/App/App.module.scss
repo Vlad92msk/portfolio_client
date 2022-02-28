@@ -1,0 +1,22 @@
+@use '../../../../public/styles/lib/functions' as *;
+@use "../../../../public/styles/lib/mixins" as *;
+
+.Application {
+  @include flex(wrap, row, space-between, center);
+  width: 100vw;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+
+  @include media-768 {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  &-Img {
+    @include media-768 {
+      position: fixed;
+
+    }
+  }
+}

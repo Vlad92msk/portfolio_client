@@ -1,0 +1,11 @@
+@use "../../../../../../public/styles/lib/functions" as *;
+
+.AboutMe {
+  &-InfoBlock {
+    margin-top: rem(20);
+  }
+
+  &-InfoItem {
+    width: 50%;
+  }
+}

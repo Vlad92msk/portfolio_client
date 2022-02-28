@@ -1,0 +1,163 @@
+@use './functions' as *;
+@use './mediaQueries' as *;
+
+/* Миксин для работы с полифиллом селектора :focus-visible */
+@mixin focusVisible() {
+
+  &[data-focus-visible-added] {
+    @content;
+  }
+}
+
+
+@mixin clearListStyle() {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  list-style: none;
+}
+
+
+@mixin placeholderColor($color) {
+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin mozScrollBar($light-theme: true) {
+  scrollbar-width: thin;
+
+  @if $light-theme {
+    scrollbar-color: var(--Color-Scrollbar) transparent;
+
+    &:hover {
+      scrollbar-color: var(--Color-Scrollbar-hover) transparent;
+    }
+  } @else {
+    scrollbar-color: var(--Color-Scrollbar-dark);
+
+    &:hover {
+      scrollbar-color: var(--Color-Scrollbar-darkHover);
+    }
+  }
+}
+
+@mixin scrollbar($light-theme: true) {
+
+  ::-webkit-scrollbar {
+    width: rem(16);
+    height: rem(16);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: rem(8);
+    height: rem(8);
+
+    border: rem(4) solid transparent;
+    border-radius: rem(8);
+    background-clip: padding-box;
+
+    @if $light-theme {
+      background-color: var(--Color-Scrollbar);
+
+      &:hover {
+        background-color: var(--Color-Scrollbar-hover);
+      }
+    } @else {
+      background-color: var(--Color-Scrollbar-dark);
+
+      &:hover {
+        background-color: var(--Color-Scrollbar-darkHover);
+      }
+    }
+  }
+}
+
+@mixin flex($wrap: false, $direction: false, $justify: false, $align-items: false, $align-content: false) {
+  display: flex;
+  @if $wrap {flex-wrap: $wrap;};
+  @if $justify {justify-content: $justify;};
+  @if $align-items {align-items: $align-items;};
+  @if $align-content {align-content: $align-content;};
+  @if $direction {flex-direction: $direction;};
+}
+
+@mixin sectionPadding($default, $mTop: false, $mBottom: false, $pBottom: false, $pTop: false) {
+  padding: $default;
+  @if $mTop {margin-top: rem($mTop)}
+  @if $pTop {padding-top: rem($pTop)}
+  @if $mBottom {margin-bottom: rem($mBottom)}
+  @if $pBottom {padding-bottom: rem($pBottom)}
+}
+
+@mixin position($left: false, $top: false, $right: false, $bottom: false, $pos: absolute) {
+  position: $pos;
+  @if $left {left: rem($left)}
+  @if $top {top: rem($top)}
+  @if $right {right: rem($right)}
+  @if $bottom {bottom: rem($bottom)}
+}
+
+@mixin wh($w: false, $h: false) {
+  @if $w {width: $w}
+  @if $h {height: $h}
+}
+
+@mixin text($size: rem(16), $transform: false, $weight: 'medium', $line-height: false) {
+  font-size: $size!important;
+
+  @if ($weight == 'medium') {
+    font-weight: var(--FontWeight-Medium);
+  } @else if ($weight == 'regular') {
+    font-weight: var(--FontWeight-Regular);
+  } @else if ($weight == 'light') {
+    font-weight: var(--FontWeight-Light);
+  } @else if ($weight == 'bold') {
+    font-weight: var(--FontWeight-Bold);
+  }
+  @if ($transform) {text-transform: uppercase;}
+  @if ($line-height) {line-height: $line-height;}
+}
+
+
+
+// для всех экранов < 1920px
+@mixin media-1920 {
+  @media (max-width: $m1920) {
+    @content
+  }
+}
+// для всех экранов < 1366px
+@mixin media-1366 {
+  @media (max-width: $m1366) {
+    @content
+  }
+}
+// для всех экранов < 1024px
+@mixin media-1024 {
+  @media (max-width: $m1024) {
+    @content
+  }
+}
+// для всех экранов < 768px
+@mixin media-768 {
+  @media (max-width: $m768) {
+    @content
+  }
+}
+// для всех экранов < 360px
+@mixin media-360 {
+  @media (max-width: $m360) {
+    @content
+  }
+}

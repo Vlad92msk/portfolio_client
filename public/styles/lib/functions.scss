@@ -1,0 +1,38 @@
+@use "sass:math" as *;
+
+@function rem($size) {
+  @if unitless($size) {
+    $remSize: div($size, 16);
+    @return #{$remSize}rem;
+  } @else {
+    @error 'Size must be a unitless number.';
+  }
+}
+
+@function wSize($min, $optimal, $max) {
+  $a: rem($min);
+  $b: #{$optimal}vw;
+  $c: rem($max);
+  @return clamp(#{$a}, #{$b}, #{$c});
+}
+
+@function hSize($min, $optimal, $max) {
+  $a: rem($min);
+  $b: #{$optimal}vh;
+  $c: rem($max);
+  @return clamp(#{$a}, #{$b}, #{$c});
+}
+
+@function remSize($min, $optimal, $max) {
+  $a: rem($min);
+  $b: rem($optimal);
+  $c: rem($max);
+  @return clamp(#{$a}, #{$b}, #{$c});
+}
+
+@function vMaxSize($min, $optimal, $max) {
+  $a: rem($min);
+  $b: #{$optimal}vmax;
+  $c: rem($max);
+  @return clamp(#{$a}, #{$b}, #{$c});
+}

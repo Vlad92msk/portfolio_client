@@ -1,0 +1,10 @@
+@use "public/styles/lib/functions" as *;
+@use "public/styles/lib/mixins" as *;
+
+$sectionPadding: 0 clamp(10px, 12vw, 15vw);
+$colorBase: var(--Color-Light--90);
+$colorBase05: var(--Color-Light--50);
+
+.Section{
+  @include sectionPadding($default: $sectionPadding, $pTop: 20);
+}

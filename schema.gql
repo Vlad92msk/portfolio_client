@@ -1,0 +1,245 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Стаьи о космосе"""
+type Article_ru {
+  """Текст статьи"""
+  article: String!
+  id: Float!
+
+  """Название статьи"""
+  title: String!
+}
+
+input CreateRoleInput {
+  description: String!
+  value: String!
+}
+
+"""Добавить навык"""
+input CreateSkillInput {
+  """Название умения"""
+  name: String!
+
+  """Позиция в сетке"""
+  position: Float!
+
+  """Специальность"""
+  specialty: String!
+}
+
+input CreateUsersInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+"""Найти статью"""
+input FindArticleInput {
+  """Текст стаьи"""
+  article: String
+  id: Float
+
+  """Название стаьи"""
+  title: String
+}
+
+input FindRoleInput {
+  description: String
+  id: Float
+  value: String
+}
+
+input FindUserInput {
+  email: String
+  id: Float
+  name: String
+  password: String
+  status: String
+}
+
+"""Интерфейс космо (ru)"""
+type Interface_cosmo_ru {
+  """Статьи"""
+  articles: String!
+
+  """Первый космический"""
+  firstSpace: String!
+  id: Float!
+
+  """Недавно добавлены"""
+  recentlyAdded: String!
+
+  """Сортировать"""
+  sort: String!
+}
+
+"""Интерфейс портфолио (ru)"""
+type Interface_ru {
+  """Возраст"""
+  age: String!
+
+  """Введите емайл"""
+  enterEmail: String!
+
+  """Введите логин"""
+  enterLogin: String!
+
+  """Введите пароль"""
+  enterPassword: String!
+
+  """Стаж"""
+  experience: String!
+  id: Float!
+
+  """Сообщение"""
+  message: String!
+
+  """Имя"""
+  name: String!
+
+  """Отчество"""
+  patronymic: String!
+
+  """Зарегистрироваться"""
+  register: String!
+
+  """Умения и навыки"""
+  skillsAndAbilities: String!
+
+  """Специальность"""
+  speciality: String!
+
+  """Фамилия"""
+  surname: String!
+
+  """Телефон"""
+  telephone: String!
+
+  """Войти"""
+  toComeIn: String!
+}
+
+type Mutation {
+  """Выйти"""
+  authSignOut: Boolean!
+
+  """Зарегистрироваться"""
+  authSignUp(user: CreateUsersInput!): User!
+
+  """Создать роль"""
+  rolesCreate(params: CreateRoleInput!): Role!
+
+  """Удалить роль"""
+  rolesDelete(params: FindRoleInput!): Boolean!
+
+  """Добавить умение"""
+  skillsCreateSkill(newSkill: CreateSkillInput!): Skill!
+
+  """Создать юзера"""
+  usersCreate(user: CreateUsersInput!): User!
+
+  """Удалить юзера"""
+  usersDelete(userParam: FindUserInput!): User!
+
+  """Обновить данные юзера"""
+  usersUpdate(param: UpdateUserInput!, target: FindUserInput!): User!
+
+  """Дать юзеру новую роль"""
+  usersUpdateGiveNewRole(param: UpdateUserRolesInput!, target: FindUserInput!): Boolean!
+}
+
+type Query {
+  """Найти статьи"""
+  articlesFindAll(searchParam: FindArticleInput): [Article_ru!]!
+
+  """Найти 1 статью по условию"""
+  articlesFindOne(searchParam: FindArticleInput!): Article_ru!
+
+  """Войти"""
+  authSignIn(signInInput: SignInInput!): User!
+
+  """Найти умения"""
+  findAllSkills: [Skill!]!
+
+  """Найти все роли"""
+  rolesFindAll: [Role!]!
+
+  """Найти роль"""
+  rolesFindOne(params: FindRoleInput!): Role!
+
+  """Получить интерфейс космо"""
+  userInterfaceCosmoFindAll: Interface_cosmo_ru!
+
+  """Получить интерфейс портфолио"""
+  userInterfacePortfolioFindAll: Interface_ru!
+
+  """Найти всех юзеров"""
+  usersFindAll: [User!]!
+
+  """Найти всех юзеров по условию"""
+  usersFindAllByParam(params: FindUserInput!): [User!]!
+
+  """Найти 1 юзера по условию"""
+  usersFindOneByParam(params: FindUserInput!): User!
+}
+
+type Role {
+  """Описание роли"""
+  description: String!
+
+  """id"""
+  id: Float!
+  users: [User!]!
+
+  """Название роли"""
+  value: String!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+type Skill {
+  id: Float!
+
+  """Название"""
+  name: String!
+
+  """Позиция на сетке"""
+  position: Float!
+
+  """Специальность (Frontend/Backend/Other)"""
+  specialty: String!
+}
+
+input UpdateUserInput {
+  email: String
+  name: String
+  password: String
+  status: String
+  uRoles: [String!]
+}
+
+input UpdateUserRolesInput {
+  role: String!
+}
+
+type User {
+  """Почта"""
+  email: String!
+  id: Float!
+
+  """Чей токен"""
+  name: String!
+
+  """Пароль"""
+  password: String!
+  roles: [Role!]!
+
+  """Статус"""
+  status: String!
+  uRoles: [String!]!
+}

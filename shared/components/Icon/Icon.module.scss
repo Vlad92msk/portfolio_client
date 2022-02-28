@@ -1,0 +1,49 @@
+@import '../../../public/styles/lib/functions';
+
+
+.Icon {
+  flex-shrink: 0;
+  //width: rem(24);
+  //height: rem(24);
+
+  &--fill {
+
+    &_oldAsphalt50 {
+      fill: var(--Color-OldAsphalt--50);
+    }
+
+    &_oldAsphalt40 {
+      fill: var(--Color-OldAsphalt--40);
+    }
+
+    &_bluePrimrose50 {
+      fill: var(--Color-BluePrimrose--50);
+    }
+
+    &_light100 {
+      fill: var(--Color-Light--100);
+    }
+
+    &_redRose40 {
+      fill: var(--Color-RedRose--40);
+    }
+  }
+
+  &--size {
+
+    &_small {
+      width: wSize(5, 5, 14);
+      height: wSize(5, 5, 14);
+    }
+
+    &_ordinary {
+      width: wSize(5, 5, 20);
+      height: wSize(5, 5, 20);
+    }
+
+    &_medium {
+      width: wSize(24, 5, 70);
+      height: wSize(5, 5, 24);
+    }
+  }
+}

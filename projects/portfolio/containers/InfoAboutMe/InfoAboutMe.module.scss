@@ -1,0 +1,16 @@
+@use "../../../../public/styles/lib/functions" as *;
+@use "../../../../public/styles/lib/mixins" as *;
+//@import "../../style.module";
+
+.InfoAboutMe {
+  @include flex($justify: center, $wrap: wrap, $align-content: space-between);
+  width: 50%;
+  flex: 1 1;
+  height: calc(100% - 56px);
+  padding: rem(20) rem(35);
+
+  @include media-768{
+    width: 100%;
+    height: auto;
+  }
+}

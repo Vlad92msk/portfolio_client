@@ -1,0 +1,32 @@
+@import '../../../public/styles/lib/functions';
+@import '../../../public/styles/lib/mixins';
+
+.Image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &-Img {
+    &--sizePriority {
+      &_width {
+        max-width: 100%;
+      }
+
+      &_height {
+        max-height: 100%;
+      }
+
+      &_cover {
+        @include wh(100%, 100%);
+        object-fit: cover;
+      }
+
+      &_contain {
+        @include wh(100%, 100%);
+        object-fit: contain;
+      }
+    }
+  }
+}

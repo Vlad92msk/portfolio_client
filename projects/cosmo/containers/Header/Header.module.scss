@@ -1,0 +1,41 @@
+@use "../../../../public/styles/lib/functions" as *;
+@use "../../../../public/styles/lib/mixins" as *;
+@import "../../style.module";
+
+.Header {
+  @include wh(100%, clamp(40vh, 60vh, 70vh));
+  @include flex($direction: column);
+  @include media-1024 {
+    height: clamp(20vh, 40vh, 40vh);
+  }
+
+  &-Video {
+    @include position(0, 0);
+    @include wh(100%, 100%);
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &-Main {
+    @include flex($align-items: center);
+    width: 100%;
+    margin-bottom: 25vh;
+  }
+
+  &-Img {
+    @include wh(20vw, 100%);
+    position: relative;
+  }
+
+  &-Title {
+    @include text(wSize(16, 8, 250), true, 'bold');
+    color: var(--Color-Light--80);
+  }
+
+  &-Description {
+    @include text(wSize(10, 4, 150), true, 'bold');
+    color: var(--Color-Light--80);
+  }
+
+
+}

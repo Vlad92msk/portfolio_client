@@ -1,0 +1,15 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as *;
+
+.Base {
+  position: relative;
+  width: 100%;
+
+  &-Img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}

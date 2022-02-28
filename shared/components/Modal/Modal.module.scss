@@ -1,0 +1,63 @@
+@import '../../../public/styles/lib/functions';
+
+.Modal {
+  $this: &;
+  $paddingSize: 32;
+  $smallSizeReducedOffsetSize: 8;
+
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+
+  &-Bck {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: '';
+    opacity: 0.7;
+    background-color: var(--Color-OldAsphalt--80);
+  }
+
+  &-Inner {
+    position: relative;
+    z-index: 1010;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: calc(100% - #{rem(48)});
+    max-height: calc(100% - #{rem(32)});
+    border-radius: rem(8);
+    background-color: var(--Color-Light--100);
+
+    &--autoHeight {
+      height: calc(100% - #{rem(32)});
+    }
+
+  }
+
+  &-BlockIconClose {
+    position: absolute;
+    z-index: 9;
+    top: rem(32);
+    right: rem(32);
+    cursor: pointer;
+  }
+
+  &-IconClose {
+    width: rem(28);
+    height: rem(28);
+    fill: var(--Color-OldAsphalt--50);
+  }
+}
