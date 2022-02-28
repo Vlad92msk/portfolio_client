@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "next:build": "next build",
-    "next:start:prod": "next start",
+    "next:start:prod": "next start -p 3500",
     "next:dev": "next dev",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "graphql:generate": "graphql-codegen --config codegen.yml",
